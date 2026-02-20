@@ -1,6 +1,6 @@
 // Transfered from inline script in HOS.html
 (function () {
-  const nav = document.querySelector(".nav-list");
+  const nav = document.querySelector(".first-nav-list");
   if (!nav) return;
   const links = nav.querySelectorAll(".nav-link");
   const saved = localStorage.getItem("hos:selected") || "";
@@ -11,7 +11,6 @@
       selectedFound = true;
     }
     link.addEventListener("click", function (e) {
-      e.preventDefault();
       links.forEach((l) => l.classList.remove("selected"));
       this.classList.add("selected");
       localStorage.setItem("hos:selected", this.textContent);
@@ -80,4 +79,16 @@
       prevScrolled = scrolled;
     }
   }, { passive: true });
+})();
+
+/* Mobile nav toggle */
+(function(){
+  const nav = document.querySelector('.main-nav');
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('mainNav');
+  if(!nav || !toggle || !menu) return;
+  toggle.addEventListener('click', ()=>{
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
 })();

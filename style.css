@@ -108,6 +108,38 @@ nav.main-nav.scrolled{
 
 .nav-logo img{ max-height: 36px; display: block; }
 
+/* Mobile nav toggle */
+.nav-toggle{
+	display: none;
+	background: transparent;
+	border: 0;
+	width: 44px;
+	height: 44px;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	color: #fff;
+}
+.nav-toggle .hamburger{
+	display: block;
+	width: 22px;
+	height: 2px;
+	background: #fff;
+	position: relative;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after{
+	content: '';
+	position: absolute;
+	left: 0;
+	width: 22px;
+	height: 2px;
+	background: #fff;
+}
+.nav-toggle .hamburger::before{ top: -7px; }
+.nav-toggle .hamburger::after{ top: 7px; }
+
+
 .first-nav-list{
 	list-style:none;
 	margin: 0 auto;
@@ -116,6 +148,15 @@ nav.main-nav.scrolled{
 	gap:10px;
 	align-items:center;
 	justify-content: center;
+}
+
+/* collapsed mobile menu (shown when .main-nav.open) */
+@media (max-width: 760px){
+  .nav-toggle{ display: inline-flex; }
+  .first-nav-list{ display: none; width: 100%; flex-direction: column; gap: 8px; padding: 8px 12px; }
+  .main-nav.open .first-nav-list{ display: flex; }
+  .main-nav.open .second-nav-list{ display: flex; }
+  .first-nav-list li{ width: 100%; text-align: center; }
 }
 
 .second-nav-list{ display:flex; gap:10px; align-items:center; }
@@ -398,6 +439,28 @@ a{ color: var(--green-700); }
 
 @media (max-width: 420px){
 	.nav-link{ padding:8px 12px; font-size:14px; }
+}
+
+/* Phone-specific tweaks */
+@media (max-width: 420px){
+	header{ padding: 10px 12px; }
+	.first-header-content{ gap:8px; }
+	.second-header-content{ display:none; }
+	.logo{ max-height:40px; }
+	.nav-button{ padding:8px 10px; font-size:14px; }
+	.nav-toggle{ display: inline-flex; }
+	.nav-logo{ display: block; opacity:1; visibility:visible; width:auto; height:auto; }
+	main{ padding: 12px 10px; }
+	.slide img{ height:160px; }
+	.welcome-img-1 img{ height:110px; }
+	.welcome-view h1{ font-size:20px; }
+}
+
+@media (max-width: 420px){
+	.slide img{ height:180px; }
+	.team-card-image{ height:180px; }
+	.welcome-view h1{ font-size:22px; }
+	.welcome-img-1 img{ height:140px; }
 }
 
 /* Hero welcome section */
