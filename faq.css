@@ -1,0 +1,22 @@
+:root{--accent: #22B14E;--bg:#fbfbff;--muted:#616274}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{margin:0;font-family: 'Segoe UI', Roboto, Arial, sans-serif;background:linear-gradient(180deg,var(--bg),#fff);color:#1b1e26;padding:clamp(16px,4vw,28px)}
+div:first-child{font-size:clamp(0.85rem,2vw,0.95rem);margin-bottom:14px}
+div:first-child a{color:var(--accent);text-decoration:none;margin-right:8px}
+h1{font-size:clamp(1.4rem,5vw,2.4rem);margin:6px 0}
+.faq-content{max-width:960px;margin:18px auto;display:block}
+details{background:#fff;border-radius:12px;padding:clamp(12px,3vw,16px);margin:clamp(10px,2vw,12px) 0;box-shadow:0 8px 24px rgba(25,25,60,0.06);border:1px solid rgba(99,95,226,0.06)}
+summary{font-weight:700;cursor:pointer;list-style:none;position:relative;padding-right:44px;font-size:clamp(0.95rem,2vw,1rem)}
+summary::marker{display:none}
+summary::after{content:'+';position:absolute;right:8px;top:50%;transform:translateY(-50%);background:var(--accent);color:#fff;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;font-weight:700}
+details[open] summary::after{content:'−'}
+details p{margin:10px 0 0;color:var(--muted);line-height:1.6;font-size:clamp(0.9rem,1.5vw,1rem)}
+
+@media (min-width:600px){
+	.faq-content{display:grid;grid-template-columns:1fr;gap:12px}
+}
+
+@media (max-width:480px){
+	summary::after{width:28px;height:28px;font-size:18px}
+}
